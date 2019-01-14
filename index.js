@@ -27,14 +27,16 @@ function JSONCache (options) {
     })
   }
   this.load = function (callback) {
-    this.data = this.jsonfile.readFile(this.file, function (error) {
-      if (error && error.errno !== -2) {
+    let self = this
+    this.jsonfile.readFile(this.file, function (error, data) {
+      if (error) {
         if (!callback) {
           throw new Error(error)
         } else {
           callback(error)
         }
       } else {
+        self.data = JSON.parse(JSON.stringify(data))
         if (callback) {
           callback(null)
         }
@@ -42,13 +44,20 @@ function JSONCache (options) {
     })
   }
   this.startAutoSave = function () {
-    this.saveInterval = setInterval(this.save, this.saveIntervalTime)
+    let self = this
+    this.saveInterval = setInterval(function () {
+      self.save()
+    }, this.saveIntervalTime)
   }
   this.stopAutoSave = function () {
     clearInterval(this.saveInterval)
   }
   if (this.autoLoad) {
-    this.load()
+    try {
+      this.data = this.jsonfile.readFileSync(this.file)
+    } catch (error) {
+      throw new Error(error)
+    }
   }
   if (this.autoSave) {
     this.startAutoSave()

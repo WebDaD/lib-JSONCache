@@ -7,7 +7,7 @@ module.exports = function (config) {
     transpilers: [],
     testFramework: 'mocha',
     coverageAnalysis: 'perTest',
-    mochaOptions: {files: ['test/test.js']},
+    mochaOptions: {files: ['tests/test.js']},
     mutate: ['index.js']
   })
 }
