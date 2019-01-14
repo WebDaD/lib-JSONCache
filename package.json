@@ -1,0 +1,17 @@
+{
+  "name": "lib-jsoncache",
+  "version": "1.0.0",
+  "description": "A small Lib to Hold a JSON-File in Memory Cache",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/test.js",
+    "test-coverage": "nyc --reporter=html --reporter=text mocha -- test/test.js",
+    "test-graphics": "nyc --reporter=html --reporter=text mocha -R mochawesome -- test/test.js",
+    "test-mutation": "stryker run",
+  },
+  "author": "Dominik Sigmund",
+  "license": "ISC",
+  "dependencies": {
+    "jsonfile": "^5.0.0"
+  }
+}
