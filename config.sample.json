@@ -1,0 +1,6 @@
+{
+  "file": "some/json/file.json",
+  "saveInterval": 30000,
+  "autoLoad": false,
+  "autpSave": false
+}
