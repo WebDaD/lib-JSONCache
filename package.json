@@ -2,6 +2,7 @@
   "name": "lib-jsoncache",
   "version": "1.0.0",
   "description": "A small Lib to Hold a JSON-File in Memory Cache",
+  "keywords":["cache", "json"],
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/test.js",
@@ -9,8 +10,12 @@
     "test-graphics": "nyc --reporter=html --reporter=text mocha -R mochawesome -- tests/test.js",
     "test-mutation": "stryker run"
   },
-  "author": "Dominik Sigmund",
+  "author": "Dominik Sigmund <sigmund.dominik@googlemail.com> (https://webdad.eu)",
   "license": "ISC",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/WebDaD/lib-JSONCache"
+  },
   "dependencies": {
     "jsonfile": "^5.0.0"
   },
